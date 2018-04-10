@@ -32,13 +32,19 @@
 
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="tel" class="form-control" name="phone" [(ngModel)]="contact.phone" placeholder="(099)9 9999-9999">
+              <input type="tel" class="form-control" name="phone" [(ngModel)]="contact.phone" placeholder="(099)9 9999-9999" (keyup)="maskPhone($event)">
             </div>
 
-            <button class="btn btn-primary" (click)="saveNewContact(contact)">&nbsp; Save &nbsp;</button>
-            <button class="btn btn-success" (click)="editContact(contact)">&nbsp; Edit &nbsp;</button>
+            <button class="btn btn-primary" (click)="saveNewContact(contact)" *ngIf="!isEdit">&nbsp; Save &nbsp;</button>
+            <button class="btn btn-success" (click)="editContact(contact)" *ngIf="isEdit">&nbsp; Edit &nbsp;</button>
+            <button class="btn btn-danger" (click)="cancelEdit()" *ngIf="isEdit">&nbsp; Cancel &nbsp;</button>
 
           </form>
+
+          <br>
+          <div class="alert alert-danger" role="alert" *ngIf="validation">
+            <p>{{ errorMessage }}</p>
+          </div>
 
         </div>
       </div>
@@ -51,13 +57,12 @@
               <p class="name">{{ con.name }}</p>
               <p>{{ con.email }}</p>
               <p>{{ con.phone }}</p>
-              <p>{{ con.birth }}</p>
+              <p>{{ con.birth | date: 'dd/MM/yyyy' }}</p>
             </div>
 
             <div class="col">
-              <div></div>
-              <button class="btn btn-success">edit</button>
-              <button class="btn btn-danger" (click)="deleteContact(con)">remove</button>
+              <button class="btn btn-success" (click)="sendToEdit(con, i)">edit</button>
+              <button class="btn btn-danger" (click)="deleteContact(con, i)">remove</button>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 @Injectable()
 export class HttpServiceProvider {
@@ -36,7 +36,7 @@ export class HttpServiceProvider {
   }
 
   public updateContact(id, dt) {
-    return this.http.put(this.url+'user/'+id.usrId+'/contact/'+dt.id, dt, this.options)
+    return this.http.put(this.url+'user/'+id+'/contact/'+dt.id, dt, this.options)
   }
 
   public deleteContactById(id, conId) {
