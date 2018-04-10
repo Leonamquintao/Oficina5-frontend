@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 import { Router } from '@angular/router'
+
+enableProdMode()
 
 @Component({
   selector: 'app-root',

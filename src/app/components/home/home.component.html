@@ -1,3 +1,68 @@
-<p>
-  home works!
-</p>
+<div class="home-page">
+
+
+  <div class="header">
+    <p>Contacts</p>
+  </div>
+
+  <button class="btn btn-light" (click)="logoff()">&nbsp; logoff &nbsp;</button>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col">
+        <div class="form">
+          <form>
+
+            <div class="form-group" *ngIf="!formType">
+              <label for="name">Name</label>
+              <input type="email" class="form-control" name="name" [(ngModel)]="contact.name" placeholder="Enter a name...">
+            </div>
+
+            <div class="form-group" *ngIf="!formType">
+              <label for="name">Birth</label>
+              <input type="date" class="form-control" name="birth" [(ngModel)]="contact.birth" placeholder="Enter birth date...">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="contact.email" placeholder="Enter email...">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" class="form-control" name="phone" [(ngModel)]="contact.phone" placeholder="(099)9 9999-9999">
+            </div>
+
+            <button class="btn btn-primary" (click)="saveNewContact(contact)">&nbsp; Save &nbsp;</button>
+            <button class="btn btn-success" (click)="editContact(contact)">&nbsp; Edit &nbsp;</button>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="col">
+
+        <div class="contact" *ngFor="let con of contacts; let i = index">
+          <div class="row">
+            <div class="col">
+              <p class="name">{{ con.name }}</p>
+              <p>{{ con.email }}</p>
+              <p>{{ con.phone }}</p>
+              <p>{{ con.birth }}</p>
+            </div>
+
+            <div class="col">
+              <div></div>
+              <button class="btn btn-success">edit</button>
+              <button class="btn btn-danger" (click)="deleteContact(con)">remove</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+</div>

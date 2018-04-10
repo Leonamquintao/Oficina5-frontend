@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpServiceProvider } from '../../services/http-service'
+import { HttpServiceProvider } from '../../services/http-service';
 
 @Component({
   selector: 'app-login',
@@ -89,6 +89,7 @@ export class LoginComponent implements OnInit {
 
   private storeCredentials(credentials) {
     localStorage.setItem('logged', 'true');
+    localStorage.setItem('id', credentials.id);
     localStorage.setItem('api_token', credentials.api_token);
   }
 
