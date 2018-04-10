@@ -2,6 +2,8 @@
 
 This Project is destined to develoment test in Oficina5
 
+![Alt text](src/assets/images/screen.png?raw=true "oficina5")
+
 ## Config
 
 Change the IP of your local server so that the frontend can communicate correctly with the backend.
