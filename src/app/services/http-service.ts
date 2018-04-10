@@ -43,5 +43,4 @@ export class HttpServiceProvider {
     return this.http.delete(this.url+'user/'+id+'/contact/'+conId, this.options)
   }
 
-
 }

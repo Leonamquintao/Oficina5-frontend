@@ -22,15 +22,26 @@
 }
 
 .contact {
+  max-width: 400px;
   background-color: #DDD;
-  padding: 10px;
+  padding: 2px;
   text-align: left;
-  border-radius: 25px;
+  border: 1px solid #000;
   margin-bottom: 4px;
+}
+
+div.contact:first-child {
+  margin-top: 60px;
 }
 
 .contact p {
   margin: 0px;
+}
+
+.btn-painel {
+  position: absolute;
+  bottom: 4px;
+  right: 18px;
 }
 
 p.name {
